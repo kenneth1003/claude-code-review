@@ -61,13 +61,7 @@ npx ccr feature/ui-update main -l zh
 
 ### Environment Variables
 
-Set your Claude API key:
-
-```bash
-export CLAUDE_API_KEY=your_api_key_here
-# or
-export ANTHROPIC_API_KEY=your_api_key_here
-```
+123 hahah
 
 ### Configuration File
 
