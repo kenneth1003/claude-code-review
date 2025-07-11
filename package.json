@@ -20,9 +20,9 @@
   "license": "ISC",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.56.0",
-    "chalk": "^5.4.1",
+    "chalk": "^4.1.2",
     "commander": "^14.0.0",
-    "ora": "^8.2.0",
+    "ora": "^5.4.1",
     "simple-git": "^3.28.0"
   },
   "devDependencies": {
