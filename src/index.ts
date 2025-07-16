@@ -27,6 +27,7 @@ program
   .argument("<target-branch>", "Target branch for comparison")
   .option("-o, --output <file>", "Output file path", "code-review.md")
   .option("-l, --language <language>", "Output language (en/zh/jp)")
+  .option("-d, --detail", "Generate detailed code review")
   .action(reviewCommand);
 
 program.parse();
