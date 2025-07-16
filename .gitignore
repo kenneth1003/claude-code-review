@@ -2,3 +2,4 @@ node_modules
 agent-resource
 dist
 logs
+.claude

@@ -36,40 +36,27 @@ export async function initCommand(options: {
     );
 
     // Add Claude code command as mentioned in spec
-    const claudeCommandPath = join(process.cwd(), ".ccr-claude-command");
-    const claudeCommand = `#!/bin/bash
-# CCR Command for Claude Code
-# Usage: /ccr <diff-file>
+    const claudeCommandsDir = join(process.cwd(), ".claude/commands");
+    const claudeCommandPath = join(claudeCommandsDir, "ccr-review.md");
+    const claudeCommandDetailPath = join(
+      claudeCommandsDir,
+      "ccr-review-detail.md"
+    );
 
-if [ "$#" -ne 1 ]; then
-    echo "Usage: /ccr <diff-file>"
-    exit 1
-fi
+    const claudeCommand = `Please review the given code`;
+    const claudeCommandDetail = `Please review the given code detail`;
 
-DIFF_FILE="$1"
+    // Create the .claude/commands directory
+    await fs.mkdir(claudeCommandsDir, { recursive: true });
 
-if [ ! -f "$DIFF_FILE" ]; then
-    echo "Error: Diff file '$DIFF_FILE' not found"
-    exit 1
-fi
-
-echo "Generating code review for: $DIFF_FILE"
-echo "Please analyze this git diff and provide a comprehensive code review:"
-echo ""
-cat "$DIFF_FILE"
-`;
-
-    await fs.writeFile(claudeCommandPath, claudeCommand, { mode: 0o755 });
-    console.log(chalk.green("✅ Claude command created: .ccr-claude-command"));
+    // Write the command files
+    await fs.writeFile(claudeCommandPath, claudeCommand);
+    await fs.writeFile(claudeCommandDetailPath, claudeCommandDetail);
+    console.log(chalk.green("✅ Claude command created: .claude/commands/"));
 
     console.log(chalk.green("\n🎉 CCR initialization complete!"));
     console.log(chalk.cyan("\nNext steps:"));
-    console.log(
-      chalk.cyan(
-        "1. Set your Claude API key: export CLAUDE_API_KEY=your_api_key"
-      )
-    );
-    console.log(chalk.cyan("2. Run: ccr <source-branch> <target-branch>"));
+    console.log(chalk.cyan("Run: ccr <source-branch> <target-branch>"));
   } catch (error) {
     console.error(chalk.red("❌ Failed to initialize CCR:"), error);
     process.exit(1);
