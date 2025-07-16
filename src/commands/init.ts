@@ -36,7 +36,7 @@ export async function initCommand(options: {
     );
 
     // Add Claude code command as mentioned in spec
-    const claudeCommandPath = join(process.cwd(), ".claude");
+    const claudeCommandPath = join(process.cwd(), ".ccr-claude-command");
     const claudeCommand = `#!/bin/bash
 # CCR Command for Claude Code
 # Usage: /ccr <diff-file>
@@ -60,7 +60,7 @@ cat "$DIFF_FILE"
 `;
 
     await fs.writeFile(claudeCommandPath, claudeCommand, { mode: 0o755 });
-    console.log(chalk.green("✅ Claude command created: .claude"));
+    console.log(chalk.green("✅ Claude command created: .ccr-claude-command"));
 
     console.log(chalk.green("\n🎉 CCR initialization complete!"));
     console.log(chalk.cyan("\nNext steps:"));
