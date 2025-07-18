@@ -25,7 +25,7 @@ A TypeScript CLI tool for generating code review summaries using Claude AI.
 ## Installation
 
 ```bash
-npm install -g ccr
+npm install -g claude-code-review
 ```
 
 ## Usage
