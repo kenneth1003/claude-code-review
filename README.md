@@ -1,13 +1,9 @@
 TODOs:
-
-- Publish to npm
-- Craft code review prompt v1
 - Create Roadmap
 - Test in my project
 – Refine README.md
 – Refine gitignore
 – Refine Testing
-
 
 # CCR - Claude Code Review
 
@@ -42,7 +38,7 @@ Options:
 ### Generate Code Review
 
 ```bash
-npx ccr <source-branch> <target-branch>
+npx ccr review <source-branch> <target-branch>
 ```
 
 Options:
