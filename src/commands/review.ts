@@ -72,23 +72,23 @@ export async function reviewCommand(
     spinner.succeed(`Diff generated: ${diffFile}`);
 
     // Generate code review with Claude
-    spinner = ora(
-      "Analyzing code with Claude Code...(it may take a while)"
-    ).start();
+    // spinner = ora(
+    //   "Analyzing code with Claude Code...(it may take a while)"
+    // ).start();
     const claudeService = new ClaudeCodeService();
     await claudeService.generateCodeReview(diffPath, options.detail || false);
-    spinner.succeed("Code review generated");
+    // spinner.succeed("Code review generated");
 
     // Save review to file
-    spinner = ora("Saving review...").start();
+    // spinner = ora("Saving review...").start();
 
-    spinner.succeed(`Review saved to: ${join(outputDir, outputFile)}`);
+    // spinner.succeed(`Review saved to: ${join(outputDir, outputFile)}`);
 
     // Clean up diff file
     await fs.unlink(diffPath);
 
-    console.log(chalk.green("\n✨ Code review completed successfully!"));
-    console.log(chalk.cyan(`📄 Review files in: ${outputDir}`));
+    // console.log(chalk.green("\n✨ Code review completed successfully!"));
+    console.log(chalk.cyan(`📄 Review summary will be saved in: ${outputDir}`));
   } catch (error) {
     spinner.fail("Failed to generate code review");
     console.error(chalk.red("Error details:"), error);

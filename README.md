@@ -1,3 +1,14 @@
+TODOs:
+
+- Publish to npm
+- Craft code review prompt v1
+- Create Roadmap
+- Test in my project
+– Refine README.md
+– Refine gitignore
+– Refine Testing
+
+
 # CCR - Claude Code Review
 
 A TypeScript CLI tool for generating code review summaries using Claude AI.
