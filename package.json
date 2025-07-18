@@ -1,6 +1,6 @@
 {
   "name": "claude-code-review",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool for generating code review summaries using Claude AI",
   "main": "dist/index.js",
   "bin": {

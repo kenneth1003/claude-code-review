@@ -85,7 +85,7 @@ export async function reviewCommand(
     // spinner.succeed(`Review saved to: ${join(outputDir, outputFile)}`);
 
     // Clean up diff file
-    await fs.unlink(diffPath);
+    // await fs.unlink(diffPath);
 
     // console.log(chalk.green("\n✨ Code review completed successfully!"));
     console.log(chalk.cyan(`📄 Review summary will be saved in: ${outputDir}`));
