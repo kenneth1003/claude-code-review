@@ -1,6 +1,6 @@
 {
   "name": "claude-code-review",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI tool for generating code review summaries using Claude AI",
   "main": "dist/index.js",
   "bin": {
@@ -16,6 +16,7 @@
     "build": "tsc",
     "dev": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "publish-local": "npm run build && npm publish",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

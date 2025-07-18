@@ -3,6 +3,8 @@ import { promises as fs } from "fs";
 import { join } from "path";
 import { CCRConfig } from "../types";
 import { saveConfig, getClaudeApiKey } from "../utils/config";
+import { promptReview } from "./prompt-review";
+import { promptReviewDetail } from "./prompt-review-detail";
 
 export async function initCommand(options: {
   language?: string;
@@ -43,8 +45,8 @@ export async function initCommand(options: {
       "ccr-review-detail.md"
     );
 
-    const claudeCommand = `Please review the given code`;
-    const claudeCommandDetail = `Please review the given code detail`;
+    const claudeCommand = promptReview;
+    const claudeCommandDetail = promptReviewDetail;
 
     // Create the .claude/commands directory
     await fs.mkdir(claudeCommandsDir, { recursive: true });
