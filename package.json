@@ -1,6 +1,6 @@
 {
   "name": "claude-code-review",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CLI tool for generating code review summaries using Claude AI",
   "main": "dist/index.js",
   "bin": {
@@ -40,10 +40,12 @@
     "@anthropic-ai/sdk": "^0.56.0",
     "chalk": "^4.1.2",
     "commander": "^14.0.0",
+    "inquirer": "^8.2.6",
     "ora": "^5.4.1",
     "simple-git": "^3.28.0"
   },
   "devDependencies": {
+    "@types/inquirer": "^8.2.6",
     "@types/node": "^24.0.12",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3"

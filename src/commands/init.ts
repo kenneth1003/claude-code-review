@@ -1,6 +1,7 @@
 import chalk from "chalk";
 import { promises as fs } from "fs";
 import { join } from "path";
+import inquirer from "inquirer";
 import { CCRConfig } from "../types";
 import { saveConfig, getClaudeApiKey } from "../utils/config";
 import { promptReview } from "./prompt-review";
@@ -11,18 +12,31 @@ export async function initCommand(options: {
 }): Promise<void> {
   console.log(chalk.blue("🚀 Initializing CCR configuration..."));
 
-  const language = options.language || "en";
-
-  if (!["en", "zh", "jp"].includes(language)) {
-    console.error(
-      chalk.red("❌ Invalid language. Supported languages: en, zh, jp")
-    );
-    process.exit(1);
-  }
+  // Prompt for configuration options
+  const answers = await inquirer.prompt([
+    {
+      type: "input",
+      name: "language",
+      message: "Enter output language:",
+      default: options.language || "en",
+    },
+    {
+      type: "input",
+      name: "outputDir",
+      message: "Enter output directory path:",
+      default: "./reviews",
+      validate: (input) => {
+        if (!input.trim()) {
+          return "Output directory cannot be empty";
+        }
+        return true;
+      },
+    },
+  ]);
 
   const config: CCRConfig = {
-    language: language as "en" | "zh" | "jp",
-    outputDir: "./reviews",
+    language: answers.language,
+    outputDir: answers.outputDir,
   };
 
   try {
