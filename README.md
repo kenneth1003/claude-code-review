@@ -1,9 +1,8 @@
 TODOs:
-- Create Roadmap
-- Test in my project
-– Refine README.md
-– Refine gitignore
-– Refine Testing
+- [ ] Add remote name in ccr.json
+- [ ] Refine README.md
+- [ ] Add Testing
+- [ ] Refactor large file
 
 # CCR - Claude Code Review
 
