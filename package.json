@@ -16,7 +16,7 @@
     "build": "tsc",
     "dev": "tsx src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "publish-local": "npm run build && npm publish",
+    "publish-local": "npm run build && npm version patch && npm publish",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
