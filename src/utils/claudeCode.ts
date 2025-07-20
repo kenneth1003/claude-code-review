@@ -1,4 +1,4 @@
-import { exec, spawnSync } from "child_process";
+import { exec, spawn } from "child_process";
 import { promisify } from "util";
 import { promises as fs } from "fs";
 import chalk from "chalk";
@@ -17,8 +17,21 @@ export class ClaudeCodeService {
         ? `claude -p "/ccr-review-detail ${diffFilePath}"`
         : `claude -p "/ccr-review ${diffFilePath}"`;
 
-      spawnSync(command, {
-        stdio: ["inherit", "pipe", "pipe"],
+      await new Promise<void>((resolve, reject) => {
+        const child = spawn(command, {
+          stdio: ["inherit", "pipe", "pipe"],
+          shell: true,
+        });
+
+        child.on("close", (code) => {
+          if (code === 0) {
+            resolve();
+          } else {
+            reject(new Error(`Process exited with code ${code}`));
+          }
+        });
+
+        child.on("error", reject);
       });
     } catch (error) {
       throw new Error(
