@@ -1,0 +1,53 @@
+{
+  "name": "claude-code-review",
+  "version": "1.0.16",
+  "description": "CLI tool for generating code review summaries using Claude AI",
+  "main": "dist/index.js",
+  "bin": {
+    "ccr": "dist/index.js"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publish-local": "npm run build && npm version patch && npm publish",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "code-review",
+    "cli",
+    "claude",
+    "ai",
+    "git"
+  ],
+  "author": "kenneth1003",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenneth1003/claude-code-review.git"
+  },
+  "homepage": "https://github.com/kenneth1003/claude-code-review#readme",
+  "bugs": {
+    "url": "https://github.com/kenneth1003/claude-code-review/issues"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.56.0",
+    "chalk": "^4.1.2",
+    "commander": "^14.0.0",
+    "inquirer": "^8.2.6",
+    "ora": "^5.4.1",
+    "simple-git": "^3.28.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.6",
+    "@types/node": "^24.0.12",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
