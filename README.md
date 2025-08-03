@@ -102,15 +102,6 @@ npx ccr review <source> <target> [options]
 
 ## 🔧 Advanced Configuration
 
-### Environment Variables
-
-```bash
-# Set Claude API key (if not using local Claude Code)
-export CLAUDE_API_KEY=your_api_key_here
-# or
-export ANTHROPIC_API_KEY=your_api_key_here
-```
-
 ### Custom Configuration
 
 `.ccr.json` supports the following options:

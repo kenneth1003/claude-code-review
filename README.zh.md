@@ -102,15 +102,6 @@ npx ccr review <source> <target> [options]
 
 ## 🔧 進階設定
 
-### 環境變數
-
-```bash
-# 設定 Claude API 金鑰（如果未使用本地 Claude Code）
-export CLAUDE_API_KEY=your_api_key_here
-# 或
-export ANTHROPIC_API_KEY=your_api_key_here
-```
-
 ### 自訂設定檔
 
 `.ccr.json` 支援以下選項：
